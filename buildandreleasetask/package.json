@@ -1,0 +1,29 @@
+{
+  "name": "test-azure-pipelines-task-hello",
+  "version": "1.0.0",
+  "description": "https://learn.microsoft.com/en-us/azure/devops/extend/develop/add-build-task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suzuki-shunsuke/test-azure-pipelines-task-hello.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suzuki-shunsuke/test-azure-pipelines-task-hello/issues"
+  },
+  "homepage": "https://github.com/suzuki-shunsuke/test-azure-pipelines-task-hello#readme",
+  "dependencies": {
+    "azure-pipelines-task-lib": "^4.3.1"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.15.13",
+    "@types/q": "^1.5.5",
+    "sync-request": "^6.1.0"
+  }
+}
