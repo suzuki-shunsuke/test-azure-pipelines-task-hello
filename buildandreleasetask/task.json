@@ -1,31 +1,31 @@
 {
- "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
- "id": "{{taskguid}}",
- "name": "{{taskname}}",
- "friendlyName": "{{taskfriendlyname}}",
- "description": "{{taskdescription}}",
- "helpMarkDown": "",
- "category": "Utility",
- "author": "{{taskauthor}}",
- "version": {
-     "Major": 0,
-     "Minor": 1,
-     "Patch": 0
- },
- "instanceNameFormat": "Echo $(samplestring)",
- "inputs": [
-     {
-         "name": "samplestring",
-         "type": "string",
-         "label": "Sample String",
-         "defaultValue": "",
-         "required": true,
-         "helpMarkDown": "A sample string"
-     }
- ],
- "execution": {
-     "Node": {
-         "target": "index.js"
-     }
- }
- }
+  "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+  "id": "61ddc222-0698-45ea-9598-05e3b8b00d79",
+  "name": "hello",
+  "friendlyName": "hello",
+  "description": "Hello",
+  "helpMarkDown": "",
+  "category": "Utility",
+  "author": "Shunsuke Suzuki",
+  "version": {
+    "Major": 0,
+    "Minor": 1,
+    "Patch": 0
+  },
+  "instanceNameFormat": "Echo $(samplestring)",
+  "inputs": [
+    {
+      "name": "samplestring",
+      "type": "string",
+      "label": "Sample String",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "A sample string"
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "index.js"
+    }
+  }
+}
