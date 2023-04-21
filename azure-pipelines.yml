@@ -45,7 +45,7 @@ stages:
           - task: Npm@1
             inputs:
               command: 'install'
-              workingDir: '/buildandreleasetask'
+              workingDir: 'buildandreleasetask'
           - task: Bash@3
             displayName: Compile Javascript
             inputs:
