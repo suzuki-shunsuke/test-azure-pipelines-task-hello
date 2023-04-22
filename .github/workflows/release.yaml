@@ -1,0 +1,48 @@
+---
+# Prerequisites
+# https://learn.microsoft.com/en-us/azure/devops/extend/develop/add-build-task?view=azure-devops
+# - Azure Organization
+# - Project
+# - Personal User Access Token
+# - Publisher
+#
+# - Set Personal Access Token to GitHub Secrets
+# - Add dependencies in package.json
+# - Create tsconfig.json
+# - Create task.json
+name: Release
+on:
+  push:
+    tags: [v*]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@83b7061638ee4956cf7545a6f7efe594e5ad0247 # v3.5.1
+
+      - name: get nested property
+        id: package_json
+        uses: notiz-dev/github-action-json-property@a5a9c668b16513c737c3e1f8956772c99c73f6e8 # v0.2.0
+        with:
+          path: buildandreleasetask/package.json
+          prop_path: volta.node
+      - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
+        with:
+          node-version: ${{steps.package_json.outputs.prop}}
+          cache: 'yarn'
+
+      - run: npm i -g tfx-cli typescript@4.6.3
+      - run: npm i
+        working-directory: buildandreleasetask
+
+      - run: |
+          tfx extension create \
+            --manifest-globs vss-extension.json \
+            --rev-version "${{github.ref_name}}"
+      - run: |
+          tfx extension publish \
+            -t "${{secrets.AZURE_API_TOKEN}}" \
+            --manifest-globs vss-extension.json \
+            --share-with ShunsukeSuzuki

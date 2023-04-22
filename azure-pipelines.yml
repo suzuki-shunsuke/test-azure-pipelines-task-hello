@@ -1,5 +1,5 @@
 trigger: 
-- main
+- dummy
 
 pool:
   vmImage: "ubuntu-latest"
@@ -100,7 +100,7 @@ stages:
               connectTo: 'VsTeam'
               connectedServiceName: 'release-extension'
               fileType: 'vsix'
-              vsixFile: '$(PublisherID).$(ExtensionName)/$(PublisherID)..vsix'
+              vsixFile: '$(PublisherID).$(ExtensionName)/$(PublisherID).vsix'
               publisherId: '$(PublisherID)'
               extensionId: '$(ExtensionID)'
               extensionName: '$(ExtensionName)'
