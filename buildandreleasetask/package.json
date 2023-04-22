@@ -25,5 +25,8 @@
     "@types/node": "^18.15.13",
     "@types/q": "^1.5.5",
     "sync-request": "^6.1.0"
+  },
+  "volta": {
+    "node": "18.16.0"
   }
 }
