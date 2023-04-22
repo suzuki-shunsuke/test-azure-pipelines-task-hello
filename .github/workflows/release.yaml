@@ -39,7 +39,7 @@ jobs:
       - run: |
           tfx extension create \
             --manifest-globs vss-extension.json \
-            --rev-version "${{github.ref_name}}"
+            --rev-version
       - run: |
           tfx extension publish \
             -t "${{secrets.AZURE_API_TOKEN}}" \
